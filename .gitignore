@@ -5,7 +5,7 @@
 # but not these files
 !.gitignore
 !.hushlogin
-!.wezterm.lua
+!README.md
 
 # allow .config directory
 !/.config
