@@ -10,6 +10,11 @@ return {
 		local configs = require("lspconfig.configs")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+		vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+			pattern = "*.mlx",
+			command = "setlocal filetype=ocaml_mlx",
+		})
+
 		local on_attach = function(client, bufner)
 			local opts = { buffer = bufner, remap = false }
 			vim.keymap.set("n", "gd", function()
@@ -97,15 +102,8 @@ return {
 		lspconfig["ocamllsp"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			-- manual_install = true,
-			-- cmd = { "dune", "exec", "ocamllsp" },
-			-- settings = {
-			-- 	codelens = { enable = true },
-			-- 	inlayHints = { enable = true },
-			-- 	syntaxDocumentation = { enable = true },
-			-- },
 			get_language_id = function(_, filetype)
-				-- vim.notify("Filetype: " .. filetype)
+				vim.notify("Filetype: " .. filetype)
 				if filetype == "ocaml_mlx" then
 					return "ocaml"
 				end
