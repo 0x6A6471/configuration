@@ -23,38 +23,41 @@ return {
 	-- },
 
 	-- {
-	-- 	"tyrannicaltoucan/vim-deep-space",
+	-- 	"tjdevries/colorbuddy.nvim",
 	-- 	lazy = false,
 	-- 	priority = 1000,
 	-- 	config = function()
-	-- 		require("colorizer").setup()
-	-- 		vim.api.nvim_set_option("background", "dark")
-	-- 		vim.cmd("colorscheme deep-space")
+	-- 		local colorbuddy = require("colorbuddy")
+	-- 		local Color = colorbuddy.Color
+	-- 		local colors = colorbuddy.colors
+	-- 		local Group = colorbuddy.Group
+	-- 		-- local groups = colorbuddy.groups
+	-- 		local styles = colorbuddy.styles
+	--
+	-- 		Color.new("qwhite", "#ffffff")
+	--
+	-- 		Group.new("htmlTag", colors.yellow:light())
+	-- 		Group.new("htmlTagName", colors.violet)
+	-- 		Group.new("typescriptbraces", colors.qwhite)
+	-- 		Group.new("typescriptEndColons", colors.qwhite)
+	-- 		Group.new("typescriptCall", colors.qwhite)
+	-- 		Group.new("typescriptStatementKeyword", colors.violet)
+	-- 		Group.new("WinSeparator", nil, nil)
+	--
+	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd.colorscheme("gruvbuddy")
 	-- 	end,
 	-- },
 
 	{
-		"tjdevries/colorbuddy.nvim",
-		lazy = false,
-		priority = 1000,
+		"ramojus/mellifluous.nvim",
+		name = "mellifluous",
 		config = function()
-			local colorbuddy = require("colorbuddy")
-			local Color = colorbuddy.Color
-			local colors = colorbuddy.colors
-			local Group = colorbuddy.Group
-			-- local groups = colorbuddy.groups
-			-- local styles = colorbuddy.styles
-
-			Color.new("NvimLightYellow", "#F8FE7A")
-			Color.new("NvimCyan", "#FABD2F")
-			Color.new("NvimLightCyan", "#FABD2F")
-
-			Group.new("@tag.attribute.tsx", colors.violet)
-			Group.new("WinSeparator", nil, nil)
-
+			require("mellifluous").setup({})
+			vim.cmd("colorscheme mellifluous")
 			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 			vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-			vim.cmd.colorscheme("gruvbuddy")
 		end,
 	},
 }
