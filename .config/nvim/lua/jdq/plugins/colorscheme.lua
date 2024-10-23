@@ -54,7 +54,11 @@ return {
 		"ramojus/mellifluous.nvim",
 		name = "mellifluous",
 		config = function()
-			require("mellifluous").setup({})
+			require("mellifluous").setup({
+				transparent_background = {
+					enabled = true,
+				},
+			})
 			vim.cmd("colorscheme mellifluous")
 			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 			vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
