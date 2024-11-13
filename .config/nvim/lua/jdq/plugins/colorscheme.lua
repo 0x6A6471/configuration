@@ -8,19 +8,44 @@ end
 
 return {
 	-- {
-	-- 	"rose-pine/neovim",
-	-- 	name = "rose-pine",
+	-- 	"ramojus/mellifluous.nvim",
+	-- 	name = "mellifluous",
 	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			styles = {
-	-- 				transparency = true,
-	-- 				italic = false,
+	-- 		require("mellifluous").setup({
+	-- 			transparent_background = {
+	-- 				enabled = true,
 	-- 			},
 	-- 		})
-	--
-	-- 		ColorMyPencils()
+	-- 		vim.cmd("colorscheme mellifluous")
+	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
 	-- 	end,
-	-- },
+	-- }
+
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+		config = function()
+			require("tokyonight").setup({
+				style = "night",
+				transparent = true,
+				terminal_colors = false,
+				styles = {
+					keywords = { italic = false },
+					functions = { italic = false },
+				},
+			})
+			vim.cmd.colorscheme("tokyonight")
+			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+			vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
+			vim.cmd("hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE")
+			vim.cmd("hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE")
+			vim.cmd("hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE")
+			vim.cmd("hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE")
+		end,
+	},
 
 	-- {
 	-- 	"tjdevries/colorbuddy.nvim",
@@ -49,19 +74,4 @@ return {
 	-- 		vim.cmd.colorscheme("gruvbuddy")
 	-- 	end,
 	-- },
-
-	{
-		"ramojus/mellifluous.nvim",
-		name = "mellifluous",
-		config = function()
-			require("mellifluous").setup({
-				transparent_background = {
-					enabled = true,
-				},
-			})
-			vim.cmd("colorscheme mellifluous")
-			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-			vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-		end,
-	},
 }
